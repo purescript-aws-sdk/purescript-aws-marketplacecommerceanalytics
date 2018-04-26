@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -96,9 +95,9 @@ newtype GenerateDataSetRequest = GenerateDataSetRequest
   , "dataSetPublicationDate" :: (DataSetPublicationDate)
   , "roleNameArn" :: (RoleNameArn)
   , "destinationS3BucketName" :: (DestinationS3BucketName)
-  , "destinationS3Prefix" :: NullOrUndefined (DestinationS3Prefix)
+  , "destinationS3Prefix" :: Maybe (DestinationS3Prefix)
   , "snsTopicArn" :: (SnsTopicArn)
-  , "customerDefinedValues" :: NullOrUndefined (CustomerDefinedValues)
+  , "customerDefinedValues" :: Maybe (CustomerDefinedValues)
   }
 derive instance newtypeGenerateDataSetRequest :: Newtype GenerateDataSetRequest _
 derive instance repGenericGenerateDataSetRequest :: Generic GenerateDataSetRequest _
@@ -108,18 +107,18 @@ instance encodeGenerateDataSetRequest :: Encode GenerateDataSetRequest where enc
 
 -- | Constructs GenerateDataSetRequest from required parameters
 newGenerateDataSetRequest :: DataSetPublicationDate -> DataSetType -> DestinationS3BucketName -> RoleNameArn -> SnsTopicArn -> GenerateDataSetRequest
-newGenerateDataSetRequest _dataSetPublicationDate _dataSetType _destinationS3BucketName _roleNameArn _snsTopicArn = GenerateDataSetRequest { "dataSetPublicationDate": _dataSetPublicationDate, "dataSetType": _dataSetType, "destinationS3BucketName": _destinationS3BucketName, "roleNameArn": _roleNameArn, "snsTopicArn": _snsTopicArn, "customerDefinedValues": (NullOrUndefined Nothing), "destinationS3Prefix": (NullOrUndefined Nothing) }
+newGenerateDataSetRequest _dataSetPublicationDate _dataSetType _destinationS3BucketName _roleNameArn _snsTopicArn = GenerateDataSetRequest { "dataSetPublicationDate": _dataSetPublicationDate, "dataSetType": _dataSetType, "destinationS3BucketName": _destinationS3BucketName, "roleNameArn": _roleNameArn, "snsTopicArn": _snsTopicArn, "customerDefinedValues": Nothing, "destinationS3Prefix": Nothing }
 
 -- | Constructs GenerateDataSetRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGenerateDataSetRequest' :: DataSetPublicationDate -> DataSetType -> DestinationS3BucketName -> RoleNameArn -> SnsTopicArn -> ( { "dataSetType" :: (DataSetType) , "dataSetPublicationDate" :: (DataSetPublicationDate) , "roleNameArn" :: (RoleNameArn) , "destinationS3BucketName" :: (DestinationS3BucketName) , "destinationS3Prefix" :: NullOrUndefined (DestinationS3Prefix) , "snsTopicArn" :: (SnsTopicArn) , "customerDefinedValues" :: NullOrUndefined (CustomerDefinedValues) } -> {"dataSetType" :: (DataSetType) , "dataSetPublicationDate" :: (DataSetPublicationDate) , "roleNameArn" :: (RoleNameArn) , "destinationS3BucketName" :: (DestinationS3BucketName) , "destinationS3Prefix" :: NullOrUndefined (DestinationS3Prefix) , "snsTopicArn" :: (SnsTopicArn) , "customerDefinedValues" :: NullOrUndefined (CustomerDefinedValues) } ) -> GenerateDataSetRequest
-newGenerateDataSetRequest' _dataSetPublicationDate _dataSetType _destinationS3BucketName _roleNameArn _snsTopicArn customize = (GenerateDataSetRequest <<< customize) { "dataSetPublicationDate": _dataSetPublicationDate, "dataSetType": _dataSetType, "destinationS3BucketName": _destinationS3BucketName, "roleNameArn": _roleNameArn, "snsTopicArn": _snsTopicArn, "customerDefinedValues": (NullOrUndefined Nothing), "destinationS3Prefix": (NullOrUndefined Nothing) }
+newGenerateDataSetRequest' :: DataSetPublicationDate -> DataSetType -> DestinationS3BucketName -> RoleNameArn -> SnsTopicArn -> ( { "dataSetType" :: (DataSetType) , "dataSetPublicationDate" :: (DataSetPublicationDate) , "roleNameArn" :: (RoleNameArn) , "destinationS3BucketName" :: (DestinationS3BucketName) , "destinationS3Prefix" :: Maybe (DestinationS3Prefix) , "snsTopicArn" :: (SnsTopicArn) , "customerDefinedValues" :: Maybe (CustomerDefinedValues) } -> {"dataSetType" :: (DataSetType) , "dataSetPublicationDate" :: (DataSetPublicationDate) , "roleNameArn" :: (RoleNameArn) , "destinationS3BucketName" :: (DestinationS3BucketName) , "destinationS3Prefix" :: Maybe (DestinationS3Prefix) , "snsTopicArn" :: (SnsTopicArn) , "customerDefinedValues" :: Maybe (CustomerDefinedValues) } ) -> GenerateDataSetRequest
+newGenerateDataSetRequest' _dataSetPublicationDate _dataSetType _destinationS3BucketName _roleNameArn _snsTopicArn customize = (GenerateDataSetRequest <<< customize) { "dataSetPublicationDate": _dataSetPublicationDate, "dataSetType": _dataSetType, "destinationS3BucketName": _destinationS3BucketName, "roleNameArn": _roleNameArn, "snsTopicArn": _snsTopicArn, "customerDefinedValues": Nothing, "destinationS3Prefix": Nothing }
 
 
 
 -- | Container for the result of the GenerateDataSet operation.
 newtype GenerateDataSetResult = GenerateDataSetResult 
-  { "dataSetRequestId" :: NullOrUndefined (DataSetRequestId)
+  { "dataSetRequestId" :: Maybe (DataSetRequestId)
   }
 derive instance newtypeGenerateDataSetResult :: Newtype GenerateDataSetResult _
 derive instance repGenericGenerateDataSetResult :: Generic GenerateDataSetResult _
@@ -129,18 +128,18 @@ instance encodeGenerateDataSetResult :: Encode GenerateDataSetResult where encod
 
 -- | Constructs GenerateDataSetResult from required parameters
 newGenerateDataSetResult :: GenerateDataSetResult
-newGenerateDataSetResult  = GenerateDataSetResult { "dataSetRequestId": (NullOrUndefined Nothing) }
+newGenerateDataSetResult  = GenerateDataSetResult { "dataSetRequestId": Nothing }
 
 -- | Constructs GenerateDataSetResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGenerateDataSetResult' :: ( { "dataSetRequestId" :: NullOrUndefined (DataSetRequestId) } -> {"dataSetRequestId" :: NullOrUndefined (DataSetRequestId) } ) -> GenerateDataSetResult
-newGenerateDataSetResult'  customize = (GenerateDataSetResult <<< customize) { "dataSetRequestId": (NullOrUndefined Nothing) }
+newGenerateDataSetResult' :: ( { "dataSetRequestId" :: Maybe (DataSetRequestId) } -> {"dataSetRequestId" :: Maybe (DataSetRequestId) } ) -> GenerateDataSetResult
+newGenerateDataSetResult'  customize = (GenerateDataSetResult <<< customize) { "dataSetRequestId": Nothing }
 
 
 
 -- | This exception is thrown when an internal service error occurs.
 newtype MarketplaceCommerceAnalyticsException = MarketplaceCommerceAnalyticsException 
-  { "message" :: NullOrUndefined (ExceptionMessage)
+  { "message" :: Maybe (ExceptionMessage)
   }
 derive instance newtypeMarketplaceCommerceAnalyticsException :: Newtype MarketplaceCommerceAnalyticsException _
 derive instance repGenericMarketplaceCommerceAnalyticsException :: Generic MarketplaceCommerceAnalyticsException _
@@ -150,12 +149,12 @@ instance encodeMarketplaceCommerceAnalyticsException :: Encode MarketplaceCommer
 
 -- | Constructs MarketplaceCommerceAnalyticsException from required parameters
 newMarketplaceCommerceAnalyticsException :: MarketplaceCommerceAnalyticsException
-newMarketplaceCommerceAnalyticsException  = MarketplaceCommerceAnalyticsException { "message": (NullOrUndefined Nothing) }
+newMarketplaceCommerceAnalyticsException  = MarketplaceCommerceAnalyticsException { "message": Nothing }
 
 -- | Constructs MarketplaceCommerceAnalyticsException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMarketplaceCommerceAnalyticsException' :: ( { "message" :: NullOrUndefined (ExceptionMessage) } -> {"message" :: NullOrUndefined (ExceptionMessage) } ) -> MarketplaceCommerceAnalyticsException
-newMarketplaceCommerceAnalyticsException'  customize = (MarketplaceCommerceAnalyticsException <<< customize) { "message": (NullOrUndefined Nothing) }
+newMarketplaceCommerceAnalyticsException' :: ( { "message" :: Maybe (ExceptionMessage) } -> {"message" :: Maybe (ExceptionMessage) } ) -> MarketplaceCommerceAnalyticsException
+newMarketplaceCommerceAnalyticsException'  customize = (MarketplaceCommerceAnalyticsException <<< customize) { "message": Nothing }
 
 
 
@@ -201,9 +200,9 @@ newtype StartSupportDataExportRequest = StartSupportDataExportRequest
   , "fromDate" :: (FromDate)
   , "roleNameArn" :: (RoleNameArn)
   , "destinationS3BucketName" :: (DestinationS3BucketName)
-  , "destinationS3Prefix" :: NullOrUndefined (DestinationS3Prefix)
+  , "destinationS3Prefix" :: Maybe (DestinationS3Prefix)
   , "snsTopicArn" :: (SnsTopicArn)
-  , "customerDefinedValues" :: NullOrUndefined (CustomerDefinedValues)
+  , "customerDefinedValues" :: Maybe (CustomerDefinedValues)
   }
 derive instance newtypeStartSupportDataExportRequest :: Newtype StartSupportDataExportRequest _
 derive instance repGenericStartSupportDataExportRequest :: Generic StartSupportDataExportRequest _
@@ -213,18 +212,18 @@ instance encodeStartSupportDataExportRequest :: Encode StartSupportDataExportReq
 
 -- | Constructs StartSupportDataExportRequest from required parameters
 newStartSupportDataExportRequest :: SupportDataSetType -> DestinationS3BucketName -> FromDate -> RoleNameArn -> SnsTopicArn -> StartSupportDataExportRequest
-newStartSupportDataExportRequest _dataSetType _destinationS3BucketName _fromDate _roleNameArn _snsTopicArn = StartSupportDataExportRequest { "dataSetType": _dataSetType, "destinationS3BucketName": _destinationS3BucketName, "fromDate": _fromDate, "roleNameArn": _roleNameArn, "snsTopicArn": _snsTopicArn, "customerDefinedValues": (NullOrUndefined Nothing), "destinationS3Prefix": (NullOrUndefined Nothing) }
+newStartSupportDataExportRequest _dataSetType _destinationS3BucketName _fromDate _roleNameArn _snsTopicArn = StartSupportDataExportRequest { "dataSetType": _dataSetType, "destinationS3BucketName": _destinationS3BucketName, "fromDate": _fromDate, "roleNameArn": _roleNameArn, "snsTopicArn": _snsTopicArn, "customerDefinedValues": Nothing, "destinationS3Prefix": Nothing }
 
 -- | Constructs StartSupportDataExportRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartSupportDataExportRequest' :: SupportDataSetType -> DestinationS3BucketName -> FromDate -> RoleNameArn -> SnsTopicArn -> ( { "dataSetType" :: (SupportDataSetType) , "fromDate" :: (FromDate) , "roleNameArn" :: (RoleNameArn) , "destinationS3BucketName" :: (DestinationS3BucketName) , "destinationS3Prefix" :: NullOrUndefined (DestinationS3Prefix) , "snsTopicArn" :: (SnsTopicArn) , "customerDefinedValues" :: NullOrUndefined (CustomerDefinedValues) } -> {"dataSetType" :: (SupportDataSetType) , "fromDate" :: (FromDate) , "roleNameArn" :: (RoleNameArn) , "destinationS3BucketName" :: (DestinationS3BucketName) , "destinationS3Prefix" :: NullOrUndefined (DestinationS3Prefix) , "snsTopicArn" :: (SnsTopicArn) , "customerDefinedValues" :: NullOrUndefined (CustomerDefinedValues) } ) -> StartSupportDataExportRequest
-newStartSupportDataExportRequest' _dataSetType _destinationS3BucketName _fromDate _roleNameArn _snsTopicArn customize = (StartSupportDataExportRequest <<< customize) { "dataSetType": _dataSetType, "destinationS3BucketName": _destinationS3BucketName, "fromDate": _fromDate, "roleNameArn": _roleNameArn, "snsTopicArn": _snsTopicArn, "customerDefinedValues": (NullOrUndefined Nothing), "destinationS3Prefix": (NullOrUndefined Nothing) }
+newStartSupportDataExportRequest' :: SupportDataSetType -> DestinationS3BucketName -> FromDate -> RoleNameArn -> SnsTopicArn -> ( { "dataSetType" :: (SupportDataSetType) , "fromDate" :: (FromDate) , "roleNameArn" :: (RoleNameArn) , "destinationS3BucketName" :: (DestinationS3BucketName) , "destinationS3Prefix" :: Maybe (DestinationS3Prefix) , "snsTopicArn" :: (SnsTopicArn) , "customerDefinedValues" :: Maybe (CustomerDefinedValues) } -> {"dataSetType" :: (SupportDataSetType) , "fromDate" :: (FromDate) , "roleNameArn" :: (RoleNameArn) , "destinationS3BucketName" :: (DestinationS3BucketName) , "destinationS3Prefix" :: Maybe (DestinationS3Prefix) , "snsTopicArn" :: (SnsTopicArn) , "customerDefinedValues" :: Maybe (CustomerDefinedValues) } ) -> StartSupportDataExportRequest
+newStartSupportDataExportRequest' _dataSetType _destinationS3BucketName _fromDate _roleNameArn _snsTopicArn customize = (StartSupportDataExportRequest <<< customize) { "dataSetType": _dataSetType, "destinationS3BucketName": _destinationS3BucketName, "fromDate": _fromDate, "roleNameArn": _roleNameArn, "snsTopicArn": _snsTopicArn, "customerDefinedValues": Nothing, "destinationS3Prefix": Nothing }
 
 
 
 -- | Container for the result of the StartSupportDataExport operation.
 newtype StartSupportDataExportResult = StartSupportDataExportResult 
-  { "dataSetRequestId" :: NullOrUndefined (DataSetRequestId)
+  { "dataSetRequestId" :: Maybe (DataSetRequestId)
   }
 derive instance newtypeStartSupportDataExportResult :: Newtype StartSupportDataExportResult _
 derive instance repGenericStartSupportDataExportResult :: Generic StartSupportDataExportResult _
@@ -234,12 +233,12 @@ instance encodeStartSupportDataExportResult :: Encode StartSupportDataExportResu
 
 -- | Constructs StartSupportDataExportResult from required parameters
 newStartSupportDataExportResult :: StartSupportDataExportResult
-newStartSupportDataExportResult  = StartSupportDataExportResult { "dataSetRequestId": (NullOrUndefined Nothing) }
+newStartSupportDataExportResult  = StartSupportDataExportResult { "dataSetRequestId": Nothing }
 
 -- | Constructs StartSupportDataExportResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartSupportDataExportResult' :: ( { "dataSetRequestId" :: NullOrUndefined (DataSetRequestId) } -> {"dataSetRequestId" :: NullOrUndefined (DataSetRequestId) } ) -> StartSupportDataExportResult
-newStartSupportDataExportResult'  customize = (StartSupportDataExportResult <<< customize) { "dataSetRequestId": (NullOrUndefined Nothing) }
+newStartSupportDataExportResult' :: ( { "dataSetRequestId" :: Maybe (DataSetRequestId) } -> {"dataSetRequestId" :: Maybe (DataSetRequestId) } ) -> StartSupportDataExportResult
+newStartSupportDataExportResult'  customize = (StartSupportDataExportResult <<< customize) { "dataSetRequestId": Nothing }
 
 
 

@@ -138,7 +138,7 @@ Encode FromDate
 
 ``` purescript
 newtype GenerateDataSetRequest
-  = GenerateDataSetRequest { dataSetType :: DataSetType, dataSetPublicationDate :: DataSetPublicationDate, roleNameArn :: RoleNameArn, destinationS3BucketName :: DestinationS3BucketName, destinationS3Prefix :: NullOrUndefined (DestinationS3Prefix), snsTopicArn :: SnsTopicArn, customerDefinedValues :: NullOrUndefined (CustomerDefinedValues) }
+  = GenerateDataSetRequest { dataSetType :: DataSetType, dataSetPublicationDate :: DataSetPublicationDate, roleNameArn :: RoleNameArn, destinationS3BucketName :: DestinationS3BucketName, destinationS3Prefix :: Maybe (DestinationS3Prefix), snsTopicArn :: SnsTopicArn, customerDefinedValues :: Maybe (CustomerDefinedValues) }
 ```
 
 Container for the parameters to the GenerateDataSet operation.
@@ -163,7 +163,7 @@ Constructs GenerateDataSetRequest from required parameters
 #### `newGenerateDataSetRequest'`
 
 ``` purescript
-newGenerateDataSetRequest' :: DataSetPublicationDate -> DataSetType -> DestinationS3BucketName -> RoleNameArn -> SnsTopicArn -> ({ dataSetType :: DataSetType, dataSetPublicationDate :: DataSetPublicationDate, roleNameArn :: RoleNameArn, destinationS3BucketName :: DestinationS3BucketName, destinationS3Prefix :: NullOrUndefined (DestinationS3Prefix), snsTopicArn :: SnsTopicArn, customerDefinedValues :: NullOrUndefined (CustomerDefinedValues) } -> { dataSetType :: DataSetType, dataSetPublicationDate :: DataSetPublicationDate, roleNameArn :: RoleNameArn, destinationS3BucketName :: DestinationS3BucketName, destinationS3Prefix :: NullOrUndefined (DestinationS3Prefix), snsTopicArn :: SnsTopicArn, customerDefinedValues :: NullOrUndefined (CustomerDefinedValues) }) -> GenerateDataSetRequest
+newGenerateDataSetRequest' :: DataSetPublicationDate -> DataSetType -> DestinationS3BucketName -> RoleNameArn -> SnsTopicArn -> ({ dataSetType :: DataSetType, dataSetPublicationDate :: DataSetPublicationDate, roleNameArn :: RoleNameArn, destinationS3BucketName :: DestinationS3BucketName, destinationS3Prefix :: Maybe (DestinationS3Prefix), snsTopicArn :: SnsTopicArn, customerDefinedValues :: Maybe (CustomerDefinedValues) } -> { dataSetType :: DataSetType, dataSetPublicationDate :: DataSetPublicationDate, roleNameArn :: RoleNameArn, destinationS3BucketName :: DestinationS3BucketName, destinationS3Prefix :: Maybe (DestinationS3Prefix), snsTopicArn :: SnsTopicArn, customerDefinedValues :: Maybe (CustomerDefinedValues) }) -> GenerateDataSetRequest
 ```
 
 Constructs GenerateDataSetRequest's fields from required parameters
@@ -172,7 +172,7 @@ Constructs GenerateDataSetRequest's fields from required parameters
 
 ``` purescript
 newtype GenerateDataSetResult
-  = GenerateDataSetResult { dataSetRequestId :: NullOrUndefined (DataSetRequestId) }
+  = GenerateDataSetResult { dataSetRequestId :: Maybe (DataSetRequestId) }
 ```
 
 Container for the result of the GenerateDataSet operation.
@@ -197,7 +197,7 @@ Constructs GenerateDataSetResult from required parameters
 #### `newGenerateDataSetResult'`
 
 ``` purescript
-newGenerateDataSetResult' :: ({ dataSetRequestId :: NullOrUndefined (DataSetRequestId) } -> { dataSetRequestId :: NullOrUndefined (DataSetRequestId) }) -> GenerateDataSetResult
+newGenerateDataSetResult' :: ({ dataSetRequestId :: Maybe (DataSetRequestId) } -> { dataSetRequestId :: Maybe (DataSetRequestId) }) -> GenerateDataSetResult
 ```
 
 Constructs GenerateDataSetResult's fields from required parameters
@@ -206,7 +206,7 @@ Constructs GenerateDataSetResult's fields from required parameters
 
 ``` purescript
 newtype MarketplaceCommerceAnalyticsException
-  = MarketplaceCommerceAnalyticsException { message :: NullOrUndefined (ExceptionMessage) }
+  = MarketplaceCommerceAnalyticsException { message :: Maybe (ExceptionMessage) }
 ```
 
 This exception is thrown when an internal service error occurs.
@@ -231,7 +231,7 @@ Constructs MarketplaceCommerceAnalyticsException from required parameters
 #### `newMarketplaceCommerceAnalyticsException'`
 
 ``` purescript
-newMarketplaceCommerceAnalyticsException' :: ({ message :: NullOrUndefined (ExceptionMessage) } -> { message :: NullOrUndefined (ExceptionMessage) }) -> MarketplaceCommerceAnalyticsException
+newMarketplaceCommerceAnalyticsException' :: ({ message :: Maybe (ExceptionMessage) } -> { message :: Maybe (ExceptionMessage) }) -> MarketplaceCommerceAnalyticsException
 ```
 
 Constructs MarketplaceCommerceAnalyticsException's fields from required parameters
@@ -304,7 +304,7 @@ Encode SnsTopicArn
 
 ``` purescript
 newtype StartSupportDataExportRequest
-  = StartSupportDataExportRequest { dataSetType :: SupportDataSetType, fromDate :: FromDate, roleNameArn :: RoleNameArn, destinationS3BucketName :: DestinationS3BucketName, destinationS3Prefix :: NullOrUndefined (DestinationS3Prefix), snsTopicArn :: SnsTopicArn, customerDefinedValues :: NullOrUndefined (CustomerDefinedValues) }
+  = StartSupportDataExportRequest { dataSetType :: SupportDataSetType, fromDate :: FromDate, roleNameArn :: RoleNameArn, destinationS3BucketName :: DestinationS3BucketName, destinationS3Prefix :: Maybe (DestinationS3Prefix), snsTopicArn :: SnsTopicArn, customerDefinedValues :: Maybe (CustomerDefinedValues) }
 ```
 
 Container for the parameters to the StartSupportDataExport operation.
@@ -329,7 +329,7 @@ Constructs StartSupportDataExportRequest from required parameters
 #### `newStartSupportDataExportRequest'`
 
 ``` purescript
-newStartSupportDataExportRequest' :: SupportDataSetType -> DestinationS3BucketName -> FromDate -> RoleNameArn -> SnsTopicArn -> ({ dataSetType :: SupportDataSetType, fromDate :: FromDate, roleNameArn :: RoleNameArn, destinationS3BucketName :: DestinationS3BucketName, destinationS3Prefix :: NullOrUndefined (DestinationS3Prefix), snsTopicArn :: SnsTopicArn, customerDefinedValues :: NullOrUndefined (CustomerDefinedValues) } -> { dataSetType :: SupportDataSetType, fromDate :: FromDate, roleNameArn :: RoleNameArn, destinationS3BucketName :: DestinationS3BucketName, destinationS3Prefix :: NullOrUndefined (DestinationS3Prefix), snsTopicArn :: SnsTopicArn, customerDefinedValues :: NullOrUndefined (CustomerDefinedValues) }) -> StartSupportDataExportRequest
+newStartSupportDataExportRequest' :: SupportDataSetType -> DestinationS3BucketName -> FromDate -> RoleNameArn -> SnsTopicArn -> ({ dataSetType :: SupportDataSetType, fromDate :: FromDate, roleNameArn :: RoleNameArn, destinationS3BucketName :: DestinationS3BucketName, destinationS3Prefix :: Maybe (DestinationS3Prefix), snsTopicArn :: SnsTopicArn, customerDefinedValues :: Maybe (CustomerDefinedValues) } -> { dataSetType :: SupportDataSetType, fromDate :: FromDate, roleNameArn :: RoleNameArn, destinationS3BucketName :: DestinationS3BucketName, destinationS3Prefix :: Maybe (DestinationS3Prefix), snsTopicArn :: SnsTopicArn, customerDefinedValues :: Maybe (CustomerDefinedValues) }) -> StartSupportDataExportRequest
 ```
 
 Constructs StartSupportDataExportRequest's fields from required parameters
@@ -338,7 +338,7 @@ Constructs StartSupportDataExportRequest's fields from required parameters
 
 ``` purescript
 newtype StartSupportDataExportResult
-  = StartSupportDataExportResult { dataSetRequestId :: NullOrUndefined (DataSetRequestId) }
+  = StartSupportDataExportResult { dataSetRequestId :: Maybe (DataSetRequestId) }
 ```
 
 Container for the result of the StartSupportDataExport operation.
@@ -363,7 +363,7 @@ Constructs StartSupportDataExportResult from required parameters
 #### `newStartSupportDataExportResult'`
 
 ``` purescript
-newStartSupportDataExportResult' :: ({ dataSetRequestId :: NullOrUndefined (DataSetRequestId) } -> { dataSetRequestId :: NullOrUndefined (DataSetRequestId) }) -> StartSupportDataExportResult
+newStartSupportDataExportResult' :: ({ dataSetRequestId :: Maybe (DataSetRequestId) } -> { dataSetRequestId :: Maybe (DataSetRequestId) }) -> StartSupportDataExportResult
 ```
 
 Constructs StartSupportDataExportResult's fields from required parameters
